@@ -60,7 +60,7 @@ func UpdateMovie(c echo.Context) error {
 		return err
 	}
 
-	if requestMovieId != updateMovieInfo.Id {
+	if requestMovieId != updateMovieInfo.Id || updateMovieInfo.Id == 0 {
 		return c.String(http.StatusBadRequest, "Invalid Id\n")
 	}
 

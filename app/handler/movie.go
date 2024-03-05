@@ -82,7 +82,7 @@ func DeleteMovie(c echo.Context) error {
 
 	for i, movie := range movies {
 		if movie.Id == requestMovieId {
-			movies = append(movies[:i], movies[:i+1]...)
+			movies = append(movies[:i], movies[i+1:]...)
 			return c.JSON(http.StatusOK, movies)
 		}
 	}
